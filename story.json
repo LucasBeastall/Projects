@@ -1,0 +1,117 @@
+{
+  "startPage": "intro",
+  "audio": {
+    "backgroundMusic": "background-music.mp3",
+    "soundEffects": {
+      "buttonClick": "button-click.mp3",
+      "pageChange": "page-change.mp3"
+    }
+  },
+  "characters": {
+    "alice": {
+      "name": "Alice",
+      "color": "#ff69b4",
+      "imageSrc": "alice.jfif"
+    },
+    "bob": {
+      "name": "Bob",
+      "color": "#4169e1",
+      "imageSrc": "bob.jpg"
+    }
+  },
+  "pages": {
+    "intro": {
+      "text": "Welcome to your ***adventure!***",
+      "audio": "pageChange",
+      "buttons": [
+        {
+          "text": "Start",
+          "nextPage": "firstChoice"
+        }
+      ]
+    },
+    "firstChoice": {
+      "text": "You find yourself at a crossroads.",
+      "audio": "pageChange",
+      "buttons": [
+        {
+          "text": "Go left",
+          "nextPage": "leftPath"
+        },
+        {
+          "text": "Go right",
+          "nextPage": "rightPath"
+        }
+      ]
+    },
+    "leftPath": {
+      "text": "You chose the left path. You see a *mysterious cave*.",
+      "buttons": [
+        {
+          "text": "Enter the cave",
+          "nextPage": "WIP",
+          "condition": "$courage > 5"
+        },
+        {
+          "text": "Return to crossroads",
+          "nextPage": "firstChoice"
+        }
+      ],
+      "inputs": [
+        {
+          "variable": "playerName",
+          "placeholder": "Enter your name"
+        }
+      ]
+    },
+    "rightPath": {
+      "text": "You chose the right path. You encounter a **friendly merchant**.",
+      "images": [
+        {
+          "src": "merchant.jfif",
+          "alt": "A smiling merchant",
+          "condition": "$metMerchant == true"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Talk to the merchant",
+          "nextPage": "merchant",
+          "effect": "$metMerchant = true"
+        },
+        {
+          "text": "Return to crossroads",
+          "nextPage": "firstChoice"
+        }
+      ]
+    },
+    "merchant": {
+      "text": "Hello",
+      "speechBoxes": [
+        {
+          "character": "alice",
+          "text": "Hello, I'm Alice! Welcome to our adventure."
+        },
+        {
+          "character": "bob",
+          "text": "Hi there! I'm Bob. Let's get started!"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Talk to the Alice",
+          "nextPage": "WIP",
+          "effect": "$metAlice = true"
+        },
+        {
+          "text": "Talk to the Bob",
+          "nextPage": "WIP",
+          "effect": "$metBob = true"
+        }
+      ]
+    },
+    "WIP": {
+      "text": "You have reached the end of this line, stay tuned for updates."
+    }
+  }
+}

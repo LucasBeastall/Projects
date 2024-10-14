@@ -1,0 +1,321 @@
+﻿body.light {
+    --primary-color: #1f1f1f;
+    --secondary-color: #000000;
+    --background-color: white;
+    --text-color: black;
+    --bar-background: #ffffff;
+    --bar-button-hover: #e4e4e4;
+    --main-bg-color: white;
+    --main-text-color: black;
+}
+
+body.dark {
+    --primary-color: #b6b6b6;
+    --secondary-color: #ececec;
+    --background-color: #141418;
+    --text-color: #e4e4e4;
+    --bar-background: #23232e;
+    --bar-button-hover: #141418;
+    --main-bg-color: #181818;
+    --main-text-color: #e4e4e4;
+}
+
+body.solar {
+    --primary-color: #576e75;
+    --secondary-color: #35535c;
+    --background-color: #fdf6e3;
+    --text-color: black;
+    --bar-background: #fdf6e3;
+    --bar-button-hover: #f5e5b8;
+    --main-bg-color: #fdf6e3;
+    --main-text-color: black;
+}
+
+body.colorful {
+    --primary-color: #ff4081;
+    --secondary-color: #00bcd4;
+    --background-color: #f0f8ff;
+    --text-color: #4a148c;
+    --bar-background: #673ab7;
+    --bar-button-hover: #512da8;
+    --main-bg-color: #f0f8ff;
+    --main-text-color: #4a148c;
+}
+
+body.clear {
+    --primary-color: #007bff;
+    --secondary-color: #28a745;
+    --background-color: #ffffff;
+    --text-color: #212529;
+    --bar-background: #f8f9fa;
+    --bar-button-hover: #e9ecef;
+    --main-bg-color: #ffffff;
+    --main-text-color: #212529;
+}
+
+    /* Ensure text is visible on light backgrounds */
+    body.solar .button-bar button,
+    body.light .button-bar button,
+    body.clear .button-bar button {
+        color: var(--text-color);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+    .popup-content h2 {
+        margin-bottom: 20px;
+    }
+
+    .popup-content button {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    }
+
+        .popup-content button:hover {
+            background-color: var(--secondary-color);
+        }
+
+.credits-popup .popup-content {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: bottom 0.3s ease-out;
+}
+
+.credits-popup.show .popup-content {
+    bottom: 0;
+}
+
+.credits-popup h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.credits-popup .social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+    .credits-popup .social-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 1.2rem;
+        transition: color var(--transition-speed) ease;
+    }
+
+        .credits-popup .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+.credits-popup .music-credit {
+    margin-bottom: 20px;
+}
+
+    .credits-popup .music-credit a {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+.credits-popup button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease;
+}
+
+    .credits-popup button:hover {
+        background-color: var(--secondary-color);
+    }
+
+@media (max-width: 600px) {
+    .credits-popup .popup-content {
+        padding: 15px;
+    }
+}
+
+
+
+#themeNotification {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: var(--primary-color);
+    color: var(--main-bg-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+    #themeNotification.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+/* Ensure theme notification is visible on all themes */
+body.light #themeNotification,
+body.solar #themeNotification,
+body.clear #themeNotification {
+    background-color: var(--text-color);
+    color: var(--main-bg-color);
+}
+
+body.dark #themeNotification,
+body.colorful #themeNotification {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+
+.button-bar {
+    display: flex;
+    background-color: var(--bar-background);
+    padding: 10px;
+    position: fixed;
+    z-index: 1000;
+}
+
+    .button-bar button {
+        flex: 1;
+        background-color: transparent;
+        color: white;
+        border: none;
+        padding: 15px;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 0.1s ease;
+    }
+
+        .button-bar button:hover {
+            background-color: var(--bar-button-hover);
+            color: var(--secondary-color);
+        }
+
+        .button-bar button i {
+            font-size: 1.5rem;
+        }
+
+        .button-bar button:active {
+            transform: rotate(30deg);
+        }
+
+/* Large screens - bar on the left */
+@media (min-width: 601px) {
+    .container {
+        padding-left: 80px; /* Reduced padding due to smaller icon buttons */
+    }
+
+    .button-bar {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 70px; /* Reduced width due to smaller icon buttons */
+        flex-direction: column;
+    }
+
+        .button-bar button {
+            margin: 5px 0;
+        }
+}
+
+/* Small screens - bar at the bottom */
+@media (max-width: 600px) {
+    .container {
+        padding-bottom: 70px;
+    }
+
+    .button-bar {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        flex-direction: row;
+    }
+
+        .button-bar button {
+            padding: 15px 10px;
+        }
+}
+
+
+
+
