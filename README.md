@@ -6,7 +6,6 @@ Check out the branches. :)
 
 ### Character GPT
 Problem: Limited exposure to foundational NLP techniques in language models
-
 Approach: Built a character-level GPT from scratch to explore low-level text processing
 
 Tools: Python, TensorFlow/PyTorch, Jupyter Notebook, Anaconda
