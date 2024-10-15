@@ -21,7 +21,7 @@ Tools: Python, NumPy, Google Colab
 Results: Created a working neural network with customizable architecture
 Impact: Deepened understanding of neural network fundamentals and backpropagation
 
-##CYOA Engine
+## CYOA Engine
 
 ### Web-Based CYOA
 Problem: Lack of flexible, web-based tools for creating interactive storytelling experiences
