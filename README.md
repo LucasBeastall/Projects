@@ -1,7 +1,6 @@
 # Projects
-a place to dump and share my work. 
-
-check out the branches :)
+A place to dump and share my work. 
+Check out the branches. :)
 
 ## GPT-Projects
 
